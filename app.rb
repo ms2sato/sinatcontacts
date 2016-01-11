@@ -12,5 +12,13 @@ end
 
 post '/contacts' do
     @name = params[:name]
-    erb :contact_confirm
+    confirmed = params[:confirmed]
+    if confirmed
+        puts "確認済み"
+        # ここでデータを保存するといい感じになります。また次回。
+        redirect '/'
+    else
+        puts "確認前"
+        erb :contact_confirm
+    end    
 end

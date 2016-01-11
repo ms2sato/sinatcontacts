@@ -8,6 +8,15 @@
         <div>
             <strong>名前: </strong><%=@name%>
         </div>
+        <form action="contacts" method="post">
+            <input type="hidden" name="name" value="<%=@name%>">
+            
+            <!-- 確認画面経由だとconfirmedがある -->
+            <input type="hidden" name="confirmed" value="true">
+            
+            <input type="submit">
+        </form>
+        
         <div>
             <a href="/">戻る</a>
         </div>
