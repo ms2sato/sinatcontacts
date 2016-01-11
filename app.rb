@@ -17,6 +17,7 @@ get '/' do
 end
 
 get '/contact_new' do
+    @contact = Contact.new
     erb :contact_form
 end
 
@@ -29,6 +30,11 @@ post '/contacts' do
         redirect '/'
     else
         puts "確認前"
-        erb :contact_confirm
+        @contact = Contact.new(name: @name)
+        if @contact.valid?
+            erb :contact_confirm
+        else    
+            erb :contact_form
+        end    
     end    
 end
