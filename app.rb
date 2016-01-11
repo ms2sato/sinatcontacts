@@ -2,5 +2,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 get '/' do
-    "Hello World"
+    now = Time.now
+    "CurrentTime: #{now}"
 end
