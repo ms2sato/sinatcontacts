@@ -5,6 +5,11 @@
     </head>
     <body>
         <h1>これはERBで書きました</h1>
+        
+        <% if @message %>
+            <div class="message"><%=@message %></div>
+        <% end %>
+        
         <div>
             <a href="/contact_new">連絡先の新規作成</a>
         </div>
