@@ -13,21 +13,24 @@
         <div>
             <a href="/contact_new">連絡先の新規作成</a>
         </div>
-        
+
         <div>
-            <table>
+            <table border="1">
                 <caption>連絡先一覧</caption>
                 <thead>
-                    <tr><th>番号</th><th>名前</th></tr>
+                    <tr><th>ID</th><th>名前</th></tr>
                 </thead>
                 <tbody>
-                    <% @contacts.each_with_index do |contact, index| %>
-                        <tr><td><%=index %></td><td><%=contact.name%></td></tr>
+                    <% @contacts.each do |contact| %>
+                        <tr>
+                          <td><%= contact.id %></td>
+                          <td><%= contact.name %></td>
+                        </tr>
                     <% end %>
                 </tbody>
             </table>
         </div>
-        
+
         <footer>
             <a href="/about.html">このサービスについて</a>
             <p>今の時刻は <%=@now%></p>
