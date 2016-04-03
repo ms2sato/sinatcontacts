@@ -14,14 +14,7 @@ get '/contact_new' do
 end
 
 post '/contacts' do
+    p params
     @name = params[:name]
-    confirmed = params[:confirmed]
-    if confirmed
-        puts "確認済み"
-        # ここでデータを保存するといい感じになります。また次回。
-        redirect '/'
-    else
-        puts "確認前"
-        erb :contact_confirm
-    end    
+    redirect '/'
 end
