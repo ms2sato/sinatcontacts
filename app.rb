@@ -11,6 +11,7 @@ get '/contact_new' do
 end
 
 post '/contacts' do
+    p params
     @name = params[:name]
-    erb :contact_confirm
+    redirect '/'
 end
