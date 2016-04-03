@@ -26,19 +26,12 @@ end
 
 post '/contacts' do
     @name = params[:name]
-    confirmed = params[:confirmed]
-    if confirmed
-        puts "確認済み"
-        Contact.create!(name: @name)
+    p params
+    @contact = Contact.new(name: @name)
+    if @contact.save
         session[:message] = "#{@name}さんを作成しました"
         redirect '/'
     else
-        puts "確認前"
-        @contact = Contact.new(name: @name)
-        if @contact.valid?
-            erb :contact_confirm
-        else    
-            erb :contact_form
-        end    
-    end    
+      erb :contact_form
+    end
 end
